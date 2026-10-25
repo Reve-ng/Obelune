@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Obelune | Barrier-first skincare & body care</title>
+<meta name="description" content="Barrier-first skincare and body care, made for everyday rituals.">
+<style>
+:root{--ink:#2a2622;--paper:#fbf8f3;--mist:#f1e9de;--line:#e4d9ca;--mute:#76695d;--ac:#b07d62;--hf:"Iowan Old Style","Palatino Linotype",Georgia,serif;--hw:400;--hs:.01em;--ht:none;--hst:normal}
+*{box-sizing:border-box;margin:0}html{scroll-behavior:smooth}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;color:var(--ink);background:var(--paper);line-height:1.5}
+a{color:inherit;text-decoration:none}button{font:inherit;cursor:pointer;border:0;background:none;color:inherit}
+:focus-visible{outline:2px solid var(--ac);outline-offset:2px}
+h1,h2,h3,.logo{font-family:var(--hf);font-weight:var(--hw);letter-spacing:var(--hs);text-transform:var(--ht);font-style:var(--hst)}
+.bar{background:var(--ink);color:var(--paper);text-align:center;font-size:12px;letter-spacing:.08em;padding:9px 12px}
+header{position:sticky;top:0;z-index:20;background:var(--paper);border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:66px;gap:16px}
+.logo{font-size:24px;letter-spacing:.2em;text-transform:uppercase}
+nav{display:flex;gap:28px;font-size:14px}nav a{padding:23px 0;border-bottom:2px solid transparent}nav a:hover{border-color:var(--ac)}
+.cartbtn{display:flex;gap:8px;align-items:center;font-size:14px}
+.count{background:var(--ink);color:var(--paper);border-radius:99px;min-width:20px;height:20px;font-size:12px;display:grid;place-items:center;padding:0 6px}
+.hero{position:relative;min-height:74vh;display:flex;padding:56px 24px;color:#fff;overflow:hidden}
+.hero>div{position:relative;z-index:1}
+.hero h1{font-size:clamp(40px,7.5vw,92px);line-height:1.02;max-width:13ch}
+.hero p{margin:18px 0 26px;max-width:42ch;opacity:.92}
+.btn{display:inline-block;background:#fff;color:#111;padding:14px 30px;font-size:14px;letter-spacing:.05em}.btn:hover{opacity:.85}.btn.dk{background:var(--ink);color:var(--paper)}
+.h-left{align-items:flex-end}
+.h-center{align-items:center;justify-content:center;text-align:center}.h-center h1,.h-center p{margin-left:auto;margin-right:auto}
+.h-split{align-items:center}.h-split>div{max-width:560px}
+.orb{position:absolute;right:-8%;top:50%;transform:translateY(-50%);width:min(60vw,640px);aspect-ratio:1;border-radius:50%;background:radial-gradient(circle at 35% 30%,rgba(255,255,255,.35),rgba(255,255,255,.04) 60%),var(--ac);opacity:.55}
+.sec{padding:48px 24px 8px}.sec h2{font-size:26px;margin-bottom:18px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}.chip{border:1px solid var(--ink);padding:9px 20px;font-size:14px;border-radius:99px}.chip:hover,.chip.on{background:var(--ink);color:var(--paper)}
+.cats{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;padding:32px 24px}
+.cat{aspect-ratio:4/5;display:flex;align-items:flex-end;padding:20px;color:#fff;font-size:20px;background:radial-gradient(circle at 70% 25%,rgba(255,255,255,.22),transparent 45%),var(--c);font-family:var(--hf);font-style:var(--hst)}
+.cat:hover{filter:brightness(1.1)}
+.shop{padding:16px 24px 56px}.row{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:26px 16px;margin-top:6px}
+.art{aspect-ratio:3/4;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.55),transparent 60%),var(--bg);position:relative;overflow:hidden}
+.tag{position:absolute;top:10px;left:10px;background:var(--paper);font-size:11px;padding:3px 9px;z-index:2}
+.obj{position:absolute;left:50%;bottom:17%;transform:translateX(-50%);background:var(--o);box-shadow:inset -9px 0 0 rgba(0,0,0,.08),0 22px 22px -12px rgba(0,0,0,.3);display:grid;place-items:center}
+.obj i{font-style:normal;font-size:9px;letter-spacing:.22em;text-transform:uppercase;color:rgba(255,255,255,.8);mix-blend-mode:normal;text-shadow:0 0 2px rgba(0,0,0,.25)}
+.obj::before{content:"";position:absolute;background:var(--lid)}
+.jar{width:46%;height:25%;border-radius:8px 8px 14px 14px}.jar::before{left:-2%;right:-2%;top:-24%;height:30%;border-radius:8px}
+.bottle{width:27%;height:46%;border-radius:12px 12px 9px 9px}.bottle::before{left:26%;right:26%;top:-17%;height:20%;border-radius:5px}
+.tube{width:22%;height:54%;border-radius:9px 9px 3px 3px}.tube::before{left:8%;right:8%;top:-8%;height:10%;border-radius:5px}
+.bag{width:44%;height:54%;border-radius:3px 3px 10px 10px}.bag::before{left:0;right:0;top:0;height:11%}
+.candle{width:42%;height:28%;border-radius:6px 6px 14px 14px}.candle::before{left:49%;width:3px;top:-13%;height:13%;border-radius:2px}
+.box{width:54%;height:32%;border-radius:5px}.box::before{left:0;right:0;top:34%;height:9%}
+.card h3{font-size:16px;margin-top:11px;font-family:inherit;font-weight:500;letter-spacing:0;text-transform:none;font-style:normal}
+.sub{color:var(--mute);font-size:13px}.pr{font-size:15px;margin:2px 0 8px}
+.buy{display:flex;gap:6px}select{flex:0 0 46%;min-width:0;border:1px solid var(--line);padding:9px 6px;font:inherit;font-size:13px;background:#fff;color:var(--ink)}
+.add{flex:1;background:var(--ink);color:var(--paper);padding:9px;font-size:14px}.add:hover{background:var(--ac)}
+.split{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.split div{padding:72px 32px;min-height:340px;display:flex;flex-direction:column;justify-content:flex-end;gap:14px;color:#fff;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.18),transparent 50%),var(--c)}
+.split h3{font-size:32px;max-width:16ch;line-height:1.1}
+.band{background:var(--mist);padding:56px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:28px}
+.band h4{font-size:16px;font-weight:500;margin-bottom:4px}.band p{color:var(--mute);font-size:14px}
+footer{padding:48px 24px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:28px;font-size:14px;border-top:1px solid var(--line)}
+footer h5{font-size:14px;margin-bottom:10px}footer ul{padding:0}footer li{list-style:none;color:var(--mute);margin:6px 0}
+.news form{display:flex;margin-top:8px}.news input{flex:1;min-width:0;border:1px solid var(--ink);padding:10px;font:inherit}.news button{background:var(--ink);color:var(--paper);padding:0 16px}
+.fine{grid-column:1/-1;color:var(--mute);font-size:12px}
+.veil{position:fixed;inset:0;background:rgba(0,0,0,.4);opacity:0;pointer-events:none;transition:opacity .25s;z-index:40}.veil.on{opacity:1;pointer-events:auto}
+aside{position:fixed;top:0;right:0;height:100%;width:min(420px,100%);background:var(--paper);z-index:50;transform:translateX(100%);transition:transform .3s;display:flex;flex-direction:column}
+aside.on{transform:none}aside header{position:static;height:60px}
+.lines{flex:1;overflow:auto;padding:8px 24px}
+.line{display:grid;grid-template-columns:64px 1fr auto;gap:12px;padding:14px 0;border-bottom:1px solid var(--line);font-size:14px}
+.line i{background:var(--bg);aspect-ratio:3/4;display:block}
+.q{display:flex;align-items:center;gap:10px;margin-top:6px}.q button{width:26px;height:26px;border:1px solid var(--line)}
+.rm{color:var(--mute);text-decoration:underline;font-size:12px}
+.foot{padding:20px 24px;border-top:1px solid var(--line)}.tot{display:flex;justify-content:space-between;margin-bottom:6px}
+.empty{padding:40px 0;color:var(--mute);text-align:center}
+.toast{position:fixed;left:50%;bottom:24px;transform:translate(-50%,20px);background:var(--ink);color:var(--paper);padding:12px 20px;font-size:14px;opacity:0;transition:.25s;z-index:60;pointer-events:none}.toast.on{opacity:1;transform:translate(-50%,0)}
+@media(max-width:760px){nav{display:none}header{padding:0 16px}.logo{font-size:20px}}
+@media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
+</style></head>
+<body>
+<div class="bar" id="bar"></div>
+<header><a class="logo" href="#top" id="logo"></a><nav id="nav" aria-label="Main"></nav>
+<button class="cartbtn" id="open" aria-label="Open cart">Cart <span class="count" id="count">0</span></button></header>
+<main id="top">
+<section class="hero" id="hero"></section>
+<section class="sec"><h2 id="th"></h2><div class="chips" id="chips"></div></section>
+<section class="cats" id="cats"></section>
+<section class="shop" id="shop"><div class="row"><h2 id="sh"></h2><span id="shown" style="color:var(--mute);font-size:14px"></span></div><div class="grid" id="grid"></div></section>
+<section class="split" id="split"></section>
+<section class="band" id="band"></section>
+</main>
+<footer><div><h5>Shop</h5><ul id="fs"></ul></div><div><h5>Help</h5><ul><li>Shipping</li><li>Returns</li><li>Contact us</li></ul></div><div><h5>Company</h5><ul><li>About</li><li>Stockists</li><li>Careers</li></ul></div>
+<div class="news"><h5>Get early access</h5><p style="color:var(--mute)">New arrivals and offers, straight to your inbox.</p><form id="nf"><input type="email" required placeholder="Email address" aria-label="Email address"><button>Join</button></form></div>
+<p class="fine" id="fine"></p></footer>
+<div class="veil" id="veil"></div>
+<aside id="cart" aria-label="Cart" aria-hidden="true"><header><strong>Your cart</strong><button id="close" aria-label="Close cart">Close</button></header>
+<div class="lines" id="lines"></div>
+<div class="foot"><div class="tot"><span>Subtotal</span><strong id="sub">₦0</strong></div><p style="color:var(--mute);font-size:12px;margin-bottom:12px">Shipping calculated at checkout.</p><button class="btn dk" style="width:100%" id="checkout">Checkout</button></div></aside>
+<div class="toast" id="toast" role="status"></div>
+<script>
+const C={"name": "Obelune", "title": "Obelune | Barrier-first skincare & body care", "desc": "Barrier-first skincare and body care, made for everyday rituals.", "bar": "FREE DELIVERY ON ORDERS OVER ₦50,000", "nav": [["Face", "Face"], ["Body", "Body"], ["Sun", "Sun"], ["Sets", "Sets"]], "hero": {"cls": "h-left", "bg": "radial-gradient(circle at 78% 25%,rgba(255,255,255,.28),transparent 42%),linear-gradient(135deg,#a9846a,#5e4636)", "h1": "Skin that feels like itself again.", "p": "Gentle, barrier-first formulas for face and body. Fewer steps, calmer skin.", "cta": "Shop the routine"}, "trend": "Shop by concern", "shopTitle": "Best sellers", "chips": [["Face", "Face"], ["Body", "Body"], ["Sun", "Sun care"], ["Sets", "Sets"]], "cats": [["Face", "#b69379", "Face"], ["Body", "#9a7561", "Body"], ["Sun care", "#c9a463", "Sun"], ["Sets", "#5f4b3e", "Sets"]], "split": [["The barrier-first routine", "Shop face", "#8c6a4f"], ["Body care, slow ritual", "Shop body", "#5d6b5a"]], "band": [["Dermatologist-tested", "Formulated for sensitive skin."], ["Fragrance-free options", "Calm formulas with no added scent."], ["Free delivery", "On orders over ₦50,000."], ["Easy returns", "14 days, no fuss."]], "prods": [{"id": 1, "n": "Daily Cleansing Gel", "c": "Face", "p": 18500, "t": "tube", "col": ["#d9c3a8", "#8c6a4f", "#efe3d3"], "o": [["50ml", 0], ["150ml", 7500]], "sub": "Soft-foam gel cleanser", "tag": ""}, {"id": 2, "n": "Barrier Repair Cream", "c": "Face", "p": 26000, "t": "jar", "col": ["#f3ece3", "#b07d62", "#e6d6c4"], "o": [["30ml", 0], ["50ml", 9000]], "sub": "Ceramides + squalane", "tag": "Best seller"}, {"id": 3, "n": "Vitamin C Glow Serum", "c": "Face", "p": 32000, "t": "bottle", "col": ["#e8a96b", "#2a2622", "#f1dcc3"], "o": [["15ml", 0], ["30ml", 12000]], "sub": "Brightening, 10% vitamin C", "tag": "New"}, {"id": 4, "n": "Shea & Marula Body Butter", "c": "Body", "p": 21000, "t": "jar", "col": ["#cdb89c", "#2a2622", "#e9dccb"], "o": [["200ml", 0], ["400ml", 11000]], "sub": "Rich, fast-absorbing", "tag": ""}, {"id": 5, "n": "Rosewater Facial Mist", "c": "Face", "p": 12500, "t": "bottle", "col": ["#e3b5ad", "#b07d62", "#f2dfd9"], "o": [["100ml", 0], ["200ml", 6000]], "sub": "Instant hydration", "tag": ""}, {"id": 6, "n": "Sheer Fluid SPF 50", "c": "Sun", "p": 24000, "t": "tube", "col": ["#f1e7d4", "#b07d62", "#ecdcc0"], "o": [["50ml", 0]], "sub": "No white cast", "tag": "New"}, {"id": 7, "n": "Whipped Body Oil", "c": "Body", "p": 19500, "t": "bottle", "col": ["#c88f5e", "#2a2622", "#ead8c2"], "o": [["100ml", 0], ["200ml", 9500]], "sub": "Lightweight glow", "tag": ""}, {"id": 8, "n": "Starter Ritual Set", "c": "Sets", "p": 58000, "t": "box", "col": ["#2a2622", "#b07d62", "#e5d3bf"], "o": [["Normal to dry", 0], ["Oily to combination", 0]], "sub": "Cleanser, serum, cream", "tag": "Gift"}]};
+const $=s=>document.querySelector(s),fmt=n=>"₦"+n.toLocaleString("en-NG");
+let filter="all",cart=[];
+document.title=C.title;$("#bar").textContent=C.bar;$("#logo").textContent=C.name;
+$("#nav").innerHTML=C.nav.map(n=>`<a href="#shop" data-f="${n[1]}">${n[0]}</a>`).join("");
+const H=C.hero;$("#hero").className="hero "+H.cls;$("#hero").style.background=H.bg;
+$("#hero").innerHTML=`<div><h1>${H.h1}</h1><p>${H.p}</p><a class="btn" href="#shop">${H.cta}</a></div>${H.cls==="h-split"?'<div class="orb"></div>':""}`;
+$("#th").textContent=C.trend;$("#sh").textContent=C.shopTitle;
+$("#chips").innerHTML=[["all","All"]].concat(C.chips).map(c=>`<button class="chip${c[0]==="all"?" on":""}" data-f="${c[0]}">${c[1]}</button>`).join("");
+$("#cats").innerHTML=C.cats.map(c=>`<a class="cat" href="#shop" data-f="${c[2]}" style="--c:${c[1]}">${c[0]}</a>`).join("");
+$("#split").innerHTML=C.split.map(s=>`<div style="--c:${s[2]}"><h3>${s[0]}</h3><a class="btn" href="#shop" style="align-self:flex-start">${s[1]}</a></div>`).join("");
+$("#band").innerHTML=C.band.map(b=>`<div><h4>${b[0]}</h4><p>${b[1]}</p></div>`).join("");
+$("#fs").innerHTML=C.chips.map(c=>`<li>${c[1]}</li>`).join("");
+$("#fine").textContent="© 2026 "+C.name+". Demo storefront: replace the sample products, prices and checkout with your own.";
+const art=p=>`<div class="art" style="--bg:${p.col[2]};--o:${p.col[0]};--lid:${p.col[1]}">${p.tag?`<span class="tag">${p.tag}</span>`:""}<div class="obj ${p.t}"><i>${C.name}</i></div></div>`;
+function render(){
+  const L=C.prods.filter(p=>filter==="all"||p.c===filter);
+  $("#shown").textContent=L.length+" items";
+  $("#grid").innerHTML=L.map(p=>`<article class="card">${art(p)}<h3>${p.n}</h3><div class="sub">${p.sub}</div><div class="pr" id="pr${p.id}">${fmt(p.p)}</div>
+  <div class="buy"><select data-o="${p.id}" aria-label="Option">${p.o.map((o,i)=>`<option value="${i}">${o[0]}</option>`).join("")}</select><button class="add" data-add="${p.id}">Add to cart</button></div></article>`).join("");
+}
+function drawCart(){
+  const n=cart.reduce((a,l)=>a+l.q,0),t=cart.reduce((a,l)=>a+l.q*l.p,0);
+  $("#count").textContent=n;$("#sub").textContent=fmt(t);
+  $("#lines").innerHTML=cart.length?cart.map((l,i)=>`<div class="line"><i style="--bg:${l.bg}"></i><div><div>${l.n}</div><div style="color:var(--mute)">${l.opt}</div>
+  <div class="q"><button data-q="${i}:-1" aria-label="Decrease">&minus;</button>${l.q}<button data-q="${i}:1" aria-label="Increase">+</button></div></div>
+  <div style="text-align:right">${fmt(l.p*l.q)}<br><button class="rm" data-rm="${i}">Remove</button></div></div>`).join(""):`<p class="empty">Your cart is empty. Add something you love.</p>`;
+}
+const toggle=on=>{$("#cart").classList.toggle("on",on);$("#veil").classList.toggle("on",on);$("#cart").setAttribute("aria-hidden",!on)};
+function toast(m){const t=$("#toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.h);toast.h=setTimeout(()=>t.classList.remove("on"),1800)}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("button,a");if(!b)return;const d=b.dataset;
+  if(d.f){filter=d.f;document.querySelectorAll(".chip").forEach(c=>c.classList.toggle("on",c.dataset.f===filter));render()}
+  if(d.add){const p=C.prods.find(x=>x.id==d.add),i=+document.querySelector(`[data-o="${p.id}"]`).value,o=p.o[i],price=p.p+o[1],k=p.id+"|"+o[0];
+    const f=cart.find(l=>l.k===k);f?f.q++:cart.push({k,n:p.n,opt:o[0],p:price,q:1,bg:p.col[2]});drawCart();toast(p.n+" added to cart")}
+  if(d.q){const[i,s]=d.q.split(":").map(Number);cart[i].q+=s;if(cart[i].q<1)cart.splice(i,1);drawCart()}
+  if(d.rm){cart.splice(+d.rm,1);drawCart()}
+});
+document.addEventListener("change",e=>{const s=e.target.closest("[data-o]");if(!s)return;const p=C.prods.find(x=>x.id==s.dataset.o);$("#pr"+p.id).textContent=fmt(p.p+p.o[+s.value][1])});
+$("#open").onclick=()=>toggle(true);$("#close").onclick=$("#veil").onclick=()=>toggle(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape")toggle(false)});
+$("#checkout").onclick=()=>toast(cart.length?"Connect your payment provider to enable checkout":"Your cart is empty");
+$("#nf").onsubmit=e=>{e.preventDefault();e.target.reset();toast("Thanks, you’re on the list")};
+render();drawCart();
+</script></body></html>
